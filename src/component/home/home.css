@@ -1,4 +1,8 @@
-
+*{
+  margin: 0;
+  padding: 0;
+  /* background-color: rgb(228, 238, 225); */
+}
 
 div.homeMainRoot{
   position: relative;
@@ -53,4 +57,61 @@ cursor: pointer;
 div.modaltest{
   position: relative;
   top: 10rem;
+}
+
+.modal{
+  background-color: rgba(107, 64, 146, 0.247)!important;
+}
+
+
+.subbox2{
+  border-left:1px solid rgb(68, 62, 62);
+  /* float: right; */
+  margin-left: 30px;
+
+}
+
+
+.subbox1{
+  /* border:1px solid rgb(51, 54, 247); */
+ 
+}
+
+
+
+#myRange{
+  -webkit-appearance: none;
+  height: 8px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgb(19, 10, 10);
+  outline: none;
+
+}
+
+#myRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  /* background-color: blue; */
+  position: relative;
+  cursor: pointer; 
+}
+
+
+
+#myOwnSpan{
+  position: absolute;
+  width: 30px;
+  color: antiquewhite;
+  font-weight: bold;
+  height: 30px;
+  background-color: rgb(19, 0, 128);
+  border-radius:20px;
+  text-align: center;
+  left: 50%;
+  transform:translateX(-10px);
+  z-index: 2;
+  bottom: 0;
 }

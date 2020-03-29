@@ -7,27 +7,27 @@ export let Navbar = () => {
         <div className="NAVBARMAIN">
             <ul className="navbarUl">
                 <li>
-                    <a>
+                    <a href=" ">
                         HOME
                    </a>
                 </li>
                 <li>
-                    <a>
+                    <a href=" " >
                         ABOUT US
                    </a>
                 </li>
                 <li>
-                    <a>
+                    <a href=" ">
                         JOBS
                    </a>
                 </li>
                 <li>
-                    <a>
+                    <a href=" ">
                         CLIENTS
                    </a>
                 </li>
                 <li>
-                    <a>
+                    <a href=" ">
                         CONTACT US
                    </a>
                 </li>
