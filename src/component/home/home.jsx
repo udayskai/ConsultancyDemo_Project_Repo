@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './home.css';
 import { Navbar } from './navbar';
 import { Modal, Button } from 'react-bootstrap'
-
+import axios from 'axios'
 
 class Mainhome extends Component {
 
@@ -33,9 +33,8 @@ class Mainhome extends Component {
     }
 
 
-    // on chnage
+    // on Change
     onchangemethod = (e) => {
-        // let data = document.querySelector(".slider");
         let myRange = document.getElementById('myRange');
         let myOwnSpan = document.getElementById('myOwnSpan')
         console.log(myRange.value, myOwnSpan.style.left)
@@ -51,20 +50,25 @@ class Mainhome extends Component {
     }
 
     // on submit 
-    onSubmitMethod = (e) => {
+    onSubmitMethod = async (e) => {
         e.preventDefault();
+        let imagedata = document.getElementById('image');
+        console.log(imagedata.files[0])
 
         let Data = {
             fistname: this.state.firstname,
-            lastname: this.state.lastname,
-            email: this.state.email,
-            phonenumber: this.state.phonenumber,
-            price: this.state.price,
-            state: this.state.state,
-            address: this.state.address,
-            tagsArray: this.state.tagsArray,
-            photo: this.state.photo,
+            // lastname: this.state.lastname,
+            // email: this.state.email,
+            // phonenumber: this.state.phonenumber,
+            // price: this.state.price,
+            // state: this.state.state,
+            // address: this.state.address,
+            // tagsArray: this.state.tagsArray,
+            photo: imagedata.files[0],
         }
+
+        let res = await axios.post("http://localhost:4000/post/form", JSON.stringify(Data), { headers: { 'Content-Type': "multipart/form-data; boundary=--------------------------178592083580993132863015" } })
+        console.log(res)
         console.log(Data);
     }
 
@@ -86,7 +90,6 @@ class Mainhome extends Component {
 
                 <div className="button">
                     {/* <button>Register</button> */}
-
                     <Button variant="dark" onClick={this.handleShow}>
                         Register
                    </Button>
@@ -102,15 +105,15 @@ class Mainhome extends Component {
                         </Modal.Header>
 
                         <Modal.Body>
-                            <form onSubmit={this.onSubmitMethod}>
-
+                            <form onSubmit={this.onSubmitMethod} encType="multipart/form-data">
                                 <div className="row "  >
+
+                                    {/* file */}
                                     <div className="subbox1 col-lg-3 col-md-3 ">
-                                        {/* <input type="file" className="custom-file-input" id="validatedCustomFile" placeholder="image" /> */}
-                                        <input type="file" name="photo" placeholder="pic" className=" col-lg-12 form-control col-md-12" />
+                                        <input type="file" id="image" name="photo" placeholder="Photo" onChange={this.onchangemethod} value={this.state.value} className=" col-lg-12 form-control col-md-12" />
                                     </div>
 
-                                    <div className="col-lg-7 col-md-7 subbox2">
+                                    <div className="col-lg-7 col-md-7   subbox2">
                                         <input type="text"
                                             name="firstname"
                                             placeholder="FirstName"
@@ -137,7 +140,6 @@ class Mainhome extends Component {
                                                     onChange={this.onchangemethod} />
                                             </div>
                                         </div>
-
 
                                         {/* row 3 */}
                                         <div className="row mt-3">
