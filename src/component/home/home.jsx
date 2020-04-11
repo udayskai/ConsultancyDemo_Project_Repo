@@ -10,7 +10,7 @@ class Mainhome extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            show: true,
+            show: false,
             firstname: "",
             lastname: "",
             email: "",
@@ -19,7 +19,8 @@ class Mainhome extends Component {
             state: "",
             address: "",
             tags: "",
-            tagsArray: []
+            tagsArray: [],
+            photo: null
         }
     }
 
@@ -42,6 +43,12 @@ class Mainhome extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    img = (e) => {
+
+        this.setState({ photo: e.target.files[0] }, () => { console.log(this.state.photo); });
+
+    }
+
     // task add in array
     addinarray = () => {
         this.setState({ tagsArray: [...this.state.tagsArray, this.state.tags] })
@@ -52,25 +59,38 @@ class Mainhome extends Component {
     // on submit 
     onSubmitMethod = async (e) => {
         e.preventDefault();
-        let imagedata = document.getElementById('image');
-        console.log(imagedata.files[0])
 
-        let Data = {
-            fistname: this.state.firstname,
-            // lastname: this.state.lastname,
-            // email: this.state.email,
-            // phonenumber: this.state.phonenumber,
-            // price: this.state.price,
-            // state: this.state.state,
-            // address: this.state.address,
-            // tagsArray: this.state.tagsArray,
-            photo: imagedata.files[0],
-        }
 
-        let res = await axios.post("http://localhost:4000/post/form", JSON.stringify(Data), { headers: { 'Content-Type': "multipart/form-data; boundary=--------------------------178592083580993132863015" } })
+        const data = new FormData()
+        data.append('photo', this.state.photo);
+        data.append('firstname', this.state.firstname);
+        data.append('lastname', this.state.lastname);
+        data.append('email', this.state.email);
+        data.append('phonenumber', this.state.phonenumber);
+        data.append('price', this.state.price);
+        data.append('state', this.state.state);
+        data.append('address', this.state.address);
+        data.append('tagsArray', this.state.tagsArray);
+
+        let res = await axios.post("http://localhost:4000/post/form",
+            data, {}).then((res) => { console.log(res) });
         console.log(res)
-        console.log(Data);
+
+        // console.log(data, "__", data1)
+        // let Data = {
+        //     fistname: this.state.firstname,
+        //     lastname: this.state.lastname,
+        //     email: this.state.email,
+        //     phonenumber: this.state.phonenumber,
+        //     price: this.state.price,
+        //     state: this.state.state,
+        //     address: this.state.address,
+        //     tagsArray: this.state.tagsArray,
+        //     photo: data
+        // }
+
     }
+
 
     // modal handler
     handleClose = () => this.setState({ show: false });
@@ -89,7 +109,6 @@ class Mainhome extends Component {
                 </div>
 
                 <div className="button">
-                    {/* <button>Register</button> */}
                     <Button variant="dark" onClick={this.handleShow}>
                         Register
                    </Button>
@@ -105,12 +124,17 @@ class Mainhome extends Component {
                         </Modal.Header>
 
                         <Modal.Body>
-                            <form onSubmit={this.onSubmitMethod} encType="multipart/form-data">
-                                <div className="row "  >
+                            <form onSubmit={this.onSubmitMethod}  >
+                                <div className="row">
 
-                                    {/* file */}
+                                    {/* fileeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee */}
                                     <div className="subbox1 col-lg-3 col-md-3 ">
-                                        <input type="file" id="image" name="photo" placeholder="Photo" onChange={this.onchangemethod} value={this.state.value} className=" col-lg-12 form-control col-md-12" />
+                                        <input type="file"
+                                            id="photo" name="photo"
+                                            placeholder="Photo"
+                                            onChange={this.img}
+                                            value={this.state.value}
+                                            className=" col-lg-12 form-control col-md-12" />
                                     </div>
 
                                     <div className="col-lg-7 col-md-7   subbox2">

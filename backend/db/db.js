@@ -1,14 +1,14 @@
 let mongoose = require('mongoose');
 
 let Schema = mongoose.Schema({
-    fistname: { type: String, require: true },
-    // lastname: { type: String, require: true },
-    // email: { type: String, require: true },
-    // phonenumber: { type: Number, require: true },
-    // price: { type: Number, require: true },
-    // state: { type: String, require: true },
-    // address: { type: String, require: true },
-    // tagsArray: { type: String, require: true },
+    firstname: { type: String },
+    lastname: { type: String },
+    email: { type: String },
+    phonenumber: { type: Number },
+    price: { type: Number },
+    state: { type: String },
+    address: { type: String },
+    tagsArray: { type: String, },
     photo: { type: String, require: true },
 })
 
