@@ -74,20 +74,7 @@ class Mainhome extends Component {
 
         let res = await axios.post("http://localhost:4000/post/form",
             data, {}).then((res) => { console.log(res) });
-        console.log(res)
-
-        // console.log(data, "__", data1)
-        // let Data = {
-        //     fistname: this.state.firstname,
-        //     lastname: this.state.lastname,
-        //     email: this.state.email,
-        //     phonenumber: this.state.phonenumber,
-        //     price: this.state.price,
-        //     state: this.state.state,
-        //     address: this.state.address,
-        //     tagsArray: this.state.tagsArray,
-        //     photo: data
-        // }
+    
 
     }
 
