@@ -1,10 +1,16 @@
-// import React from  'react';
+import React, { Fragment } from 'react';
 
 
 
-// export const InputTag =(props)=>{
+const InputTag = ({ ...props }) => {
 
-//     return(
-//         <input  />
-//     )
-// }
+    return (
+        <Fragment>
+            <input {...props} />
+        </Fragment>
+    )
+}
+
+
+
+export default InputTag;
