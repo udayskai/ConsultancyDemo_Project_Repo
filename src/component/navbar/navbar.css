@@ -2,21 +2,27 @@
 
 ul.navbarUl{
     list-style: none;
-   text-decoration:none ;
-   padding: 0px 40px;
    display :flex;
    justify-content:space-between;
+   margin: 0 auto;
+   padding:5px;
    flex-direction: row;
+   background-image: linear-gradient(to Right , rgb(25, 135, 150),rgb(124, 74, 190));
+   
 }
 
 ul.navbarUl li{
-    /* border:1px solid rgb(153, 255, 0); */
-    margin: 0px 10px;
+    margin: 0px 5px;
      cursor: pointer;
 }
 
 ul.navbarUl li a { 
-    font-size: 1rem;
+    font-size: 22px;
+    text-decoration: none;
     font-weight: 400;
     color: honeydew;
+}
+
+ul.navbarUl li a:hover{
+    color: rgb(253, 249, 14);
 }

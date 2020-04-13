@@ -10,7 +10,7 @@ export let Navbar = () => {
 
             <div className="NAVBARMAIN">
                 <ul className="navbarUl">
-                    <Li name="Home" />
+                    <Li name="HOME" />
                     <Li name="ABOUT US" />
                     <Li name="JOBS" />
                     <Li name="CLIENTS" />

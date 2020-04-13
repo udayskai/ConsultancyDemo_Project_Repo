@@ -14,13 +14,11 @@ div.homeMainRoot{
 
 
 div.NavabrHolder{
- border: 2px solid black;
- width: fit-content;
+ border: 1px solid black;
  position: absolute;
- margin-left:800px;
+ right: 0px;
  margin-top: 3rem;;
-
- background-color: rgba(27, 24, 24, 0.986);
+background-color: rgba(27, 24, 24, 0.986);
 }
 
 div.logo{
