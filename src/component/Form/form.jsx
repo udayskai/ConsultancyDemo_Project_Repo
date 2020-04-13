@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 
+//IMG COMP
 import InputTag from '../inputs/input-component'
 
 
@@ -17,8 +18,8 @@ export default class form extends Component {
             lastname: "",
             email: "",
             phonenumber: "",
-            age: "50",
-            state: "",
+            age: "18",
+            state: "Maharashtra",
             address: "",
             tags: "",
             tagsArray: [],
@@ -36,7 +37,7 @@ export default class form extends Component {
         data.append('lastname', this.state.lastname);
         data.append('email', this.state.email);
         data.append('phonenumber', this.state.phonenumber);
-        data.append('price', this.state.price);
+        data.append('price', this.state.age);
         data.append('state', this.state.state);
         data.append('address', this.state.address);
         data.append('tagsArray', this.state.tagsArray);
@@ -54,6 +55,7 @@ export default class form extends Component {
 
     // Add Tags
     addinarray = () => {
+        if (!this.state.tags || this.state.tagsArray.length > 5) { return null }
         this.setState({ tagsArray: [...this.state.tagsArray, this.state.tags] })
         this.setState({ tags: "" })
     }
@@ -83,68 +85,48 @@ export default class form extends Component {
                 <form onSubmit={this.onSubmitMethod}  >
                     <div className="row">
 
-                        {/* fileeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee */}
-                        <div className="subbox1 col-lg-3 col-md-3 ">
-                            <input type="file"
-                                id="photo" name="photo"
-                                placeholder="Photo"
-                                onChange={this.img}
-                                value={this.state.value}
-                                className=" col-lg-12 form-control col-md-12" />
+                        {/* files*/}
+                        <div className="subbox1 col-lg-3 ml-4 col-md-3 " >
+                            <input type="file" id="photo" name="photo" placeholder="Photo"
+                                onChange={this.img} value={this.state.value}
+                                style={{ backgroundColor: "#EEFFDF", width: "max-fit", height: "3rem" }}
+                                className=" col-lg-10 col-sm-12 m-2 form-control " />
                         </div>
 
-                        <div className="col-lg-7 col-md-7   subbox2">
-                            <input type="text"
-                                name="firstname"
-                                placeholder="FirstName"
-                                pattern="[a-z,A-Z]{3,10}"
-                                vlaue={this.state.firstname}
-                                onChange={this.onchangemethod}
+                        <div className="col-lg-7 col-md-7 mt-2   subbox2">
+                            {/* FirstName */}
+                            <input type="text" name="firstname" placeholder="FirstName"
+                                pattern="[a-z,A-Z]{3,10}" value={this.state.firstname} onChange={this.onchangemethod}
                                 className="form-control col-lg-11" />
 
-                            <input type="text"
-                                className="ml-0 mt-3 form-control col-lg-11 "
-                                name="lastname"
-                                placeholder="LastName"
-                                vlaue={this.state.lastname}
+                            {/* LastName */}
+                            <input type="text" className="ml-0 mt-3 form-control col-lg-11 "
+                                name="lastname" placeholder="LastName" value={this.state.lastname}
                                 onChange={this.onchangemethod} />
 
-                            {/* row 2 */}
+                            {/* row 2  Email*/}
                             <div className="row mt-3">
                                 <div className="col-lg-12">
-                                    <InputTag type="email"
-                                        className="col-lg-11 form-control"
-                                        name="email"
-                                        placeholder="Email"
-                                        vlaue={this.state.email}
-                                        onChange={this.onchangemethod} />
+                                    <InputTag type="email" className="col-lg-11 form-control" name="email"
+                                        placeholder="Email" value={this.state.email} onChange={this.onchangemethod}
+                                    />
                                 </div>
                             </div>
 
                             {/* row 3 */}
                             <div className="row mt-3">
                                 <div className="col-lg-12">
-                                    <input type="text"
-                                        className="col-lg-11 form-control"
-                                        name="phonenumber"
-                                        placeholder="+91 37 ..."
-                                        vlaue={this.state.phonenumber}
-                                        onChange={this.onchangemethod} />
+                                    <input type="text" className="col-lg-11 form-control" name="phonenumber"
+                                        placeholder="+91" value={this.state.phonenumber} onChange={this.onchangemethod} />
                                 </div>
                             </div>
 
                             {/* in test row 4 price range */}
                             <div className="row mt-3" >
                                 <div className="col-lg-11 " >
-
-                                    <input type="range" min="1" max="100" name="price"
-                                        onChange={this.onchangemethod}
-                                        value={this.state.price}
-                                        id="myRange" />
-                                    <span id="myOwnSpan"> {this.state.price}</span>
-
-
-
+                                    <input type="range" min="1" max="100" name="age"
+                                        onChange={this.onchangemethod} value={this.state.age} id="myRange" />
+                                    <span id="myOwnSpan"> {this.state.age}</span>
                                 </div>
                             </div>
 
@@ -156,7 +138,6 @@ export default class form extends Component {
                                         <option value="Goa">Goa</option>
                                         <option value="MP">MP</option>
                                     </select>
-
                                 </div>
                             </div>
 
@@ -164,35 +145,29 @@ export default class form extends Component {
                             {/* row 6 address */}
                             <div className="row mt-3">
                                 <div className="col-lg-12">
-                                    <input type="text"
-                                        className="col-lg-11 form-control"
-                                        name="address"
-                                        placeholder="Address"
-                                        value={this.state.address}
-                                        onChange={this.onchangemethod} />
+                                    <input type="text" className="col-lg-11 form-control" name="address"
+                                        placeholder="Address" value={this.state.address} onChange={this.onchangemethod}
+                                    />
                                 </div>
                             </div>
 
                             {/* row 7 tags */}
                             <div className="row mt-3">
-                                <div className="col-lg-12">
-                                    <input type="text"
-                                        className="col-lg-8 form-control"
-                                        name="tags"
-                                        placeholder="tags"
-                                        value={this.state.tags}
-                                        onChange={this.onchangemethod}
+                                <div className="col-lg-12 btn-group">
+                                    <input type="text" className="col-lg-8 col-sm-6 form-control" name="tags"
+                                        placeholder="Tags" value={this.state.tags} onChange={this.onchangemethod}
                                     />
 
-                                    <button className="float-right" type="button" onClick={this.addinarray} > Add</button>
-                                    <section>
-                                        {
-                                            this.state.tagsArray.map((data, index) => (
-                                                <button type="button" className="btn btn-success btn-sm mr-1" key={data + index} onClick={() => { this.handletagmethod(data) }}> {data}</button>))
-                                        }
-                                    </section>
+                                    <button className="col-lg-2 col-sm-6 btn btn-success" type="button" onClick={this.addinarray} > Add</button>
                                 </div>
+                                <section className="col-md-12 mt-2">
+                                    {
+                                        this.state.tagsArray.map((data, index) => (
+                                            <button type="button" className="btn btn-danger btn-sm mr-1" key={data + index} onClick={() => { this.handletagmethod(data) }}> {data}</button>))
+                                    }
+                                </section>
                             </div>
+
                             {/* submits */}
                             <hr />
                             <div className="row m-3">
@@ -205,13 +180,11 @@ export default class form extends Component {
                                     <Button variant="primary" type="">
                                         Submit </Button>
                                 </div>
-
                             </div>
 
                         </div>
                     </div>
                 </form>
-
             </div>
         )
     }
