@@ -11,6 +11,4 @@ const InputTag = ({ ...props }) => {
     )
 }
 
-
-
 export default InputTag;
