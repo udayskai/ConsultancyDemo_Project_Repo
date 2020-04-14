@@ -6,8 +6,9 @@ ul.navbarUl{
    justify-content:space-between;
    margin: 0 auto;
    padding:5px;
+   border-radius: 5px;
    flex-direction: row;
-   background-image: linear-gradient(to Right , rgb(25, 135, 150),rgb(124, 74, 190));
+   background-image: linear-gradient(to Right , rgb(7, 7, 87),rgb(94, 60, 173));
    
 }
 
@@ -15,7 +16,7 @@ ul.navbarUl li{
     margin: 0px 7px;
     padding: 0px 4px 0px;
      cursor: pointer;
-     border-bottom: rgb(229, 222, 153) 2px solid;
+     border-bottom: rgb(252, 252, 252) 1px solid;
 }
 
 ul.navbarUl li a { 
