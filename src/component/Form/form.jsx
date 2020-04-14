@@ -86,22 +86,22 @@ export default class form extends Component {
                     <div className="row">
 
                         {/* files*/}
-                        <div className="subbox1 col-lg-3 ml-4 col-md-3 " >
+                        <div className=" col-lg-3  col-md-3 " >
                             <input type="file" id="photo" name="photo" placeholder="Photo"
                                 onChange={this.img} value={this.state.value}
-                                style={{ backgroundColor: "#EEFFDF", width: "max-fit", height: "3rem" }}
-                                className=" col-lg-10 col-sm-12 m-2 form-control " />
+                                style={{ backgroundColor: "#EEfFDF", width: "max-fit", height: "3rem" }}
+                                className=" col-lg-10 col-sm-12 form-control " />
                         </div>
 
                         <div className="col-lg-7 col-md-7 mt-2   subbox2">
                             {/* FirstName */}
-                            <input type="text" name="firstname" placeholder="FirstName"
+                            <input type="text" name="firstname" placeholder="Firstname"
                                 pattern="[a-z,A-Z]{3,10}" value={this.state.firstname} onChange={this.onchangemethod}
                                 className="form-control col-lg-11" />
 
                             {/* LastName */}
                             <input type="text" className="ml-0 mt-3 form-control col-lg-11 "
-                                name="lastname" placeholder="LastName" value={this.state.lastname}
+                                name="lastname" placeholder="Lastname" value={this.state.lastname}
                                 onChange={this.onchangemethod} />
 
                             {/* row 2  Email*/}
@@ -158,7 +158,7 @@ export default class form extends Component {
                                         placeholder="Tags" value={this.state.tags} onChange={this.onchangemethod}
                                     />
 
-                                    <button className="col-lg-2 col-sm-6 btn btn-success" type="button" onClick={this.addinarray} > Add</button>
+                                    <button className="col-lg-2 col-sm-6 btn btn-outline-dark bg-light" type="button" onClick={this.addinarray} > Add</button>
                                 </div>
                                 <section className="col-md-12 mt-2">
                                     {
@@ -171,13 +171,13 @@ export default class form extends Component {
                             {/* submits */}
                             <hr />
                             <div className="row m-3">
-                                <div className="col-md-6 mx-auto ">
-                                    <Button variant="dark" type="submit" onClick={this.props.close}>
+                                <div className="col-md-6 col-sm-12 mx-auto ">
+                                    <Button className="btn btn-block mt-2" variant="dark" type="submit" onClick={this.props.close}>
                                         Cancel
                                      </Button>
                                 </div>
-                                <div className="col-md-6 mx-auto ">
-                                    <Button variant="primary" type="">
+                                <div className="col-md-6  col-sm-12  mx-auto ">
+                                    <Button className="btn btn-block mt-2" variant="primary" type="submit">
                                         Submit </Button>
                                 </div>
                             </div>

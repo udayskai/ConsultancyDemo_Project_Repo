@@ -1,6 +1,8 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 
+import './modal.css'
+
 
 
 export default function modal(props) {
@@ -12,7 +14,7 @@ export default function modal(props) {
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
             >
-                <Modal.Header closeButton className="bg-danger">
+                <Modal.Header closeButton className="modalheader">
                     <Modal.Title>Register</Modal.Title>
                 </Modal.Header>
 
