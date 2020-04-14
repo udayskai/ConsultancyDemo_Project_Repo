@@ -25,12 +25,14 @@ class Mainhome extends Component {
     render() {
         return (
             <div className="homeMainRoot">
-                <div className="logo">
-                    Logo
-               </div>
+
                 <div className="NavabrHolder" >
                     <Navbar />
                 </div>
+                <div className="logo">
+                    Logo
+                    </div>
+
 
                 <Modal
                     close={this.handleClose}
